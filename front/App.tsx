@@ -9,8 +9,8 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Main from './router/Main';
-import Map from './router/Map';
+import Main from './src/Main'
+import Map from './src/Map';
 
 export type RootStackParamList = {
   Main: undefined;
