@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '../App';
 
@@ -8,16 +8,22 @@ const Map: React.FC = () => {
 
   return (
 	
-    <View>
-      <Text>Map Screen</Text>
-      <Button
-        title="Go Back to Main"
-        onPress={() => navigation.navigate('Main')}
-      />
+    <View >
+      <Text style={{marginTop: 50}}>Map Screen</Text>
+      <TouchableOpacity 
+      onPress={() => navigation.navigate('Main')}
+      style={{marginTop: 50}}>
+        <Text>Go to Main</Text>
+      </TouchableOpacity>
+        
+      
     </View>
 	
   );
 };
+
+const styles = StyleSheet.create({
+});
 
 export default Map;
 

@@ -22,9 +22,17 @@ const Stack = createStackNavigator<RootStackParamList>();
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Main">
-        <Stack.Screen name="Main" component={Main} />
-        <Stack.Screen name="Map" component={Map} />
+      <Stack.Navigator initialRouteName="Main" >
+        <Stack.Screen name="Main" component={Main} 
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen name="Map" component={Map} 
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
