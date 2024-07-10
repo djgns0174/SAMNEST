@@ -1,39 +1,22 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Main from './src/Main'
-import Map from './src/Map';
+import Main from './src/Main';
+import Footer from './src/screens/footer'; // Assuming correct import path for Footer
+import MyPage from './src/screens/myPage';
+//import Map from './src/Map'
 
-export type RootStackParamList = {
-  Main: undefined;
-  Map: undefined;
-};
-
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator();
 
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Main" >
-        <Stack.Screen name="Main" component={Main} 
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen name="Map" component={Map} 
-          options={{
-            headerShown: false,
-          }}
-        />
+      <Stack.Navigator initialRouteName="Main">
+        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen name="MyPage" component={MyPage}/>
       </Stack.Navigator>
+      <Footer /> 
     </NavigationContainer>
   );
 };
