@@ -28,6 +28,25 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 );
 
+        http
+                .formLogin((auth)->auth.loginPage("/login")
+                        .loginProcessingUrl("/loginProc")
+                        .permitAll());
+
+        http
+                .csrf((auth)->auth.disable());
+
+
+        http
+                .sessionManagement((auth) -> auth
+                        .maximumSessions(1)
+                        .maxSessionsPreventsLogin(true));
+
+        http
+                .sessionManagement((auth) -> auth
+                        .sessionFixation().changeSessionId());
+
+
         return http.build();
     }
 }

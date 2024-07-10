@@ -3,12 +3,9 @@ package com.example.samnest_back.service;
 import com.example.samnest_back.dto.JoinDTO;
 import com.example.samnest_back.entity.UserEntity;
 import com.example.samnest_back.repository.UserRepository;
-import org.apache.catalina.Store;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-
 
 @Service
 public class JoinService {
@@ -19,17 +16,19 @@ public class JoinService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public void joinProcess(JoinDTO joinDTO){
-        UserEntity userEntity = new UserEntity();
 
-        //DB에 동일한 회원인 경우
+    public void joinProcess(JoinDTO joinDTO) {
+
         boolean isUser = userRepository.existsByUsername(joinDTO.getUsername());
-        if(isUser) { return; }
+        if(isUser){return;}
 
-        userEntity.setUsername(joinDTO.getUsername());
-        userEntity.setPassword(bCryptPasswordEncoder.encode(joinDTO.getPassword()));
-        userEntity.setRole("ROLE_USER");
+        UserEntity data = new UserEntity();
 
-        userRepository.save(userEntity);
+        data.setUsername(joinDTO.getUsername());
+        data.setPassword(bCryptPasswordEncoder.encode(joinDTO.getPassword()));
+        data.setRole("ROLE_USER");
+
+
+        userRepository.save(data);
     }
 }

@@ -3,8 +3,8 @@ package com.example.samnest_back.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
 public class JoinDTO {
 
     private String username;
