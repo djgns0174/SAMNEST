@@ -3,8 +3,10 @@ import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react
 import styles from '../styles/myPageStyles'
 import { TextInput } from 'react-native-gesture-handler';
 import  * as KakaoLogin from '@react-native-seoul/kakao-login';
+import { useNavigation } from '@react-navigation/native';
 
 const MyPage = () => {
+  const navigation = useNavigation();
   const [isChecked, setIsChecked] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -40,7 +42,7 @@ const MyPage = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigation.navigate('Main')}>
         <ImageBackground source={require('../assets/sideBarIcon.png')} style={styles.sideBarIcon}/>
       </TouchableOpacity>
 
