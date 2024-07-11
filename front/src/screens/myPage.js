@@ -1,32 +1,102 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
-import { RootStackParamList } from '../App';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import {Image} from 'react-native';
-import userIcon from '../assets/userIcon.png';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
 import styles from '../styles/myPageStyles'
+import { TextInput } from 'react-native-gesture-handler';
+import  * as KakaoLogin from '@react-native-seoul/kakao-login';
 
 const MyPage = () => {
+  const [isChecked, setIsChecked] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+      login(username, password)
+          .then(data => {
+              // 로그인 성공 시 처리
+              console.log('로그인 성공:', data);
+          })
+          .catch(error => {
+              // 로그인 실패 시 처리
+              console.error('로그인 실패:', error);
+          });
+  };
+
+  const kakaoLogin = () => {
+    KakaoLogin.login().then((result) => {
+        console.log("Login Success", JSON.stringify(result));
+        getProfile();
+    }).catch((error) => {
+        if (error.code === 'E_CANCELLED_OPERATION') {
+            console.log("Login Cancel", error.message);
+        } else {
+            console.log(`Login Fail(code:${error.code})`, error.message);
+        }
+    });
+  };
+
+  const handlePress = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
     <View style={styles.container}>
+      <TouchableOpacity>
+        <ImageBackground source={require('../assets/sideBarIcon.png')} style={styles.sideBarIcon}/>
+      </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.button, {backgroundColor: '#FCA74C'}]} onPress={() => navigation.navigate('MyPage')}>
-          <Image source={userIcon} style={styles.image} />
-          <Text style={styles.buttonText}>내 정보</Text>
+      <View style={styles.idContainer}>
+        <TextInput
+          style={styles.input}
+          value={username}
+          onChangeText={setUsername}
+          placeholderTextColor='black'
+          placeholder="아이디"
+        />
+      </View>
+
+      <View style={styles.pwdContainer}>
+        <TextInput
+          style={styles.input}
+          value={password}
+          onChangeText={setPassword}
+          placeholder="비밀번호"
+          placeholderTextColor='black'
+        />
+      </View>
+
+      <View style={styles.autoLoginContainer}>
+        <TouchableOpacity
+          style={[styles.checkbox, isChecked ? styles.checked : styles.unchecked]}
+          onPress={handlePress}
+        >
+        </TouchableOpacity>
+        <Text style={styles.checkboxLabel}>자동 로그인</Text>
+      </View>
+
+      <View style={styles.loginButton}>
+        <TouchableOpacity onPress={()=>handleLogin()}>
+          <Text style={styles.loginButtonText}>로그인</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.authContainer}>
+        <TouchableOpacity>
+          <Text style={styles.searchId}>아이디</Text>
+        </TouchableOpacity>
+        <Text> / </Text> 
+        <TouchableOpacity>
+          <Text style={styles.searchPwd}>비밀번호 찾기</Text>
         </TouchableOpacity>
 
-        <View style={styles.footer}>
-          <Icon name="facebook" size={24} color="#000" />
-          <Icon name="linkedin" size={24} color="#000" />
-          <Icon name="youtube" size={24} color="#000" />
-          <Icon name="instagram" size={24} color="#000" />
-        </View>
-        <View style={styles.footerText}>
-          <Text style={styles.footerLink}>OurTeam</Text>
-          <Text style={styles.footerLink}>About</Text>
-          <Text style={styles.footerLink}>Contact Us</Text>
-        </View>
+        <TouchableOpacity>
+          <Text style={styles.join}>회원가입</Text>
+        </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity style={styles.kakaoLoginButton} onPress={()=>kakaoLogin()}>
+        <Text style={styles.kakaoLoginButtonText}>카카오 로그인</Text>
+      </TouchableOpacity>
+
     </View>
   );
 };

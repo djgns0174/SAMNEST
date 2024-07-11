@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">front</string>
+    <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth“ -->
+        <string name="kakao_app_key">1d82af484ce877f23cda4f4daa6902f2</string>
+    <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth“ -->
 </resources>

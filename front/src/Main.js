@@ -1,38 +1,36 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Image} from 'react-native';
 import selectIcon from './assets/selectIcon.png';
 import recommendIcon from './assets/recommendIcon.png';
 import userIcon from './assets/userIcon.png';
 import sirenIcon from './assets/sirenIcon.png';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Main: React.FC = () => {
+const Main = () => {
   const navigation = useNavigation();
-
   return (
     <View style={styles.container}>
       <Text style={styles.title1}>여행할</Text>
       <Text style={styles.title2}>권리</Text>
       <View style={styles.content}>
-        <TouchableOpacity style={styles.button} /*onPress={() => navigation.navigate('Map')}*/>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Main')}>
           <Image source={selectIcon} style={styles.image} />
           <Text style={styles.buttonText}>여행지 선택</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.button, {backgroundColor: '#FCC14C'}]} /*onPress={() => navigation.navigate('Map')}*/>
+        <TouchableOpacity style={[styles.button, {backgroundColor: '#FCC14C'}]} onPress={() => navigation.navigate('Main')}>
           <Image source={recommendIcon} style={styles.image} />
           <Text style={styles.buttonText}>여행지 추천</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.button, {backgroundColor: '#FCA74C'}]} /*onPress={() => navigation.navigate('MyPage')}*/>
+        <TouchableOpacity style={[styles.button, {backgroundColor: '#FCA74C'}]} onPress={() => navigation.navigate('MyPage')}>
           <Image source={userIcon} style={styles.image} />
           <Text style={styles.buttonText}>내 정보</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.button, {backgroundColor: '#FC7E4C'}]} /*onPress={() => navigation.navigate('Map')}*/>
+        <TouchableOpacity style={[styles.button, {backgroundColor: '#FC7E4C'}]} onPress={() => navigation.navigate('Main')}>
           <Image source={sirenIcon} style={styles.image} />
           <Text style={styles.buttonText}>긴급 호출</Text>
         </TouchableOpacity>
