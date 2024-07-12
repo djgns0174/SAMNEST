@@ -22,6 +22,10 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((auth) -> auth
+
+                        //프론트 백 연동 test코드
+                        //.requestMatchers(("/api/hello")).permitAll()
+
                         .requestMatchers("/", "/login", "/loginProc", "/join", "/joinProc").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")

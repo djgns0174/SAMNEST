@@ -90,7 +90,7 @@ const MyPage = () => {
           <Text style={styles.searchPwd}>비밀번호 찾기</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate('JoinPage')}>
           <Text style={styles.join}>회원가입</Text>
         </TouchableOpacity>
       </View>
