@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
-import styles from '../styles/joinPageStyles'
+import styles from '../styles/joinPageStyles';
 import { TextInput } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,12 +8,18 @@ const JoinPage = () => {
   const navigation = useNavigation();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [selectedGender, setSelectedGender] = useState('');
+  const [selectedGender, setSelectedGender] = useState(null);
+
+  const handlePress = (gender) => {
+    if (selectedGender !== gender) {
+      setSelectedGender(gender);
+    }
+  };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={()=>navigation.navigate('Main')}>
-        <ImageBackground source={require('../assets/sideBarIcon.png')} style={styles.sideBarIcon}/>
+      <TouchableOpacity onPress={() => navigation.navigate('Main')}>
+        <ImageBackground source={require('../assets/sideBarIcon.png')} style={styles.sideBarIcon} />
       </TouchableOpacity>
 
       <View style={styles.idContainer}>
@@ -47,16 +53,28 @@ const JoinPage = () => {
       </View>
 
       <View style={styles.genderContainer}>
-            <TouchableOpacity style={styles.manButton} >
-                <Text style={styles.manText} >남성</Text>
-            </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            styles.manButton,
+            selectedGender === '남성' ? styles.selected : null,
+          ]}
+          onPress={() => handlePress('남성')}
+        >
+          <Text style={styles.manText}>남성</Text>
+        </TouchableOpacity>
 
-            <TouchableOpacity style={styles.womanButton} >
-                <Text style={styles.womanText} >여성</Text>
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={[
+            styles.womanButton,
+            selectedGender === '여성' ? styles.selected : null,
+          ]}
+          onPress={() => handlePress('여성')}
+        >
+          <Text style={styles.womanText}>여성</Text>
+        </TouchableOpacity>
+      </View>
 
-      <View style={styles.joinButton} onPress={()=>navigation.navigate('MyPage')}>
+      <View style={styles.joinButton} onPress={() => navigation.navigate('MyPage')}>
         <TouchableOpacity>
           <Text style={styles.joinButtonText}>가입하기</Text>
         </TouchableOpacity>

@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
         width:95,
         height:45,
         borderRadius:15,
-        backgroundColor:'white',
+        backgroundColor:'#FFDAB3',
+        borderColor:'#FFDAB3',
         justifyContent:'center',
         alignItems:'center',
         marginRight:30,
@@ -68,19 +69,25 @@ const styles = StyleSheet.create({
         width:95,
         height:45,
         borderRadius:15,
-        backgroundColor:'white',
+        backgroundColor:'#FFDAB3',
+        borderColor:'#FFDAB3',
         justifyContent:'center',
         alignItems:'center',
     },
     manText:{
+        marginBottom:5,
         fontSize:15,
         color:'black',
         fontWeight:'bold',
     },
     womanText:{
+        marginBottom:5,
         fontSize:15,
         color:'black',
         fontWeight:'bold',
+    },
+    selected:{
+      backgroundColor:'#FCA74C',
     }
   });
 
