@@ -9,12 +9,21 @@ const JoinPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [selectedGender, setSelectedGender] = useState(null);
+  const [checkDisable, setCheckDisable] = useState();
 
-  const handlePress = (gender) => {
+  const genderHandlePress = (gender) => {
     if (selectedGender !== gender) {
       setSelectedGender(gender);
     }
   };
+
+  const disableHandlePress =()=>{
+    if(checkDisable === true){
+      checkDisable  === false;
+    }
+
+    else{checkDisable===true;}
+  }
 
   return (
     <View style={styles.container}>
@@ -56,9 +65,9 @@ const JoinPage = () => {
         <TouchableOpacity
           style={[
             styles.manButton,
-            selectedGender === '남성' ? styles.selected : null,
+            selectedGender === '남성' ? styles.selectedGender : null,
           ]}
-          onPress={() => handlePress('남성')}
+          onPress={() => genderHandlePress('남성')}
         >
           <Text style={styles.manText}>남성</Text>
         </TouchableOpacity>
@@ -66,12 +75,50 @@ const JoinPage = () => {
         <TouchableOpacity
           style={[
             styles.womanButton,
-            selectedGender === '여성' ? styles.selected : null,
+            selectedGender === '여성' ? styles.selectedGender : null,
           ]}
-          onPress={() => handlePress('여성')}
+          onPress={() => genderHandlePress('여성')}
         >
           <Text style={styles.womanText}>여성</Text>
         </TouchableOpacity>
+      </View>
+
+      <View style={styles.checkDisableContainer}>
+        <TouchableOpacity
+          style={[
+            styles.disableButton,
+            checkDisable === true ? styles.checkDisable : null,
+          ]}
+          onPress={disableHandlePress()}
+        >
+          <Text style={styles.manText}>시각</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[
+            styles.disableButton,
+            checkDisable === true ? styles.checkDisable : null,
+          ]}
+          onPress={disableHandlePress()}
+        >
+          <Text style={styles.manText}>청각</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[
+            styles.disableButton,
+            checkDisable === true ? styles.checkDisable : null,
+          ]}
+          onPress={disableHandlePress()}
+        >
+          <Text style={styles.manText}>지체</Text>
+        </TouchableOpacity>
+
+        <TextInput
+          style={styles.disableETC}
+          placeholder="기타"
+          placeholderTextColor='black'
+        />
       </View>
 
       <View style={styles.joinButton} onPress={() => navigation.navigate('MyPage')}>

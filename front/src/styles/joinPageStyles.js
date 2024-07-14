@@ -70,7 +70,6 @@ const styles = StyleSheet.create({
         height:45,
         borderRadius:15,
         backgroundColor:'#FFDAB3',
-        borderColor:'#FFDAB3',
         justifyContent:'center',
         alignItems:'center',
     },
@@ -86,8 +85,8 @@ const styles = StyleSheet.create({
         color:'black',
         fontWeight:'bold',
     },
-    selected:{
-      backgroundColor:'#FCA74C',
+    selectedGender:{
+      backgroundColor:'#ffda6b',
     }
   });
 
