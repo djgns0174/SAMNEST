@@ -2,28 +2,33 @@ package com.example.samnest_back.controller;
 
 import com.example.samnest_back.dto.JoinDTO;
 import com.example.samnest_back.service.JoinService;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class JoinController {
+    private final Logger log = LoggerFactory.getLogger(getClass());//내 클래스를 지정해줌
 
     @Autowired
-    private JoinService joinService;
-
+    private final JoinService joinService;
 
     @GetMapping("/join")
-    public String joinP() {
+    public String join() {
 
-        System.out.println("join");
         return "join";
     }
 
 
-    @PostMapping("/joinProc")
-    public String joinProcess(JoinDTO joinDTO) {
+    @PostMapping("/joinProcess")
+    public String joinProcess(@RequestBody JoinDTO joinDTO) {
+        log.info("hello world");//test
 
         joinService.joinProcess(joinDTO);
 

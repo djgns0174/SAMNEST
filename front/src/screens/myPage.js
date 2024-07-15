@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Alert } from 'react-native';
 import styles from '../styles/myPageStyles'
 import { TextInput } from 'react-native-gesture-handler';
 import  * as KakaoLogin from '@react-native-seoul/kakao-login';
@@ -11,16 +11,18 @@ const MyPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-      login(username, password)
-          .then(data => {
-              // 로그인 성공 시 처리
-              console.log('로그인 성공:', data);
-          })
-          .catch(error => {
-              // 로그인 실패 시 처리
-              console.error('로그인 실패:', error);
-          });
+  const handleLogin = async () => {
+    console.log(username);
+    console.log(password);//test
+    try {
+      await axios.post('http://10.0.2.2:8080/loginProcess', {
+        username,
+        password,
+      });
+      Alert.alert('로그인 성공');
+    } catch (error) {
+      Alert.alert('로그인 실패');
+    }
   };
 
   const kakaoLogin = () => {

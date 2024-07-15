@@ -37,15 +37,18 @@ public class SecurityConfig {
                         .loginProcessingUrl("/loginProc")
                         .permitAll());
 
+        //crsf disable
         http
                 .csrf((auth)->auth.disable());
 
 
+        //최대 다중 로그인 수
         http
                 .sessionManagement((auth) -> auth
                         .maximumSessions(1)
                         .maxSessionsPreventsLogin(true));
 
+        //세션관리설정
         http
                 .sessionManagement((auth) -> auth
                         .sessionFixation().changeSessionId());

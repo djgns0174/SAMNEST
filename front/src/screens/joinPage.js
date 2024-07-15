@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Alert } from 'react-native';
 import styles from '../styles/joinPageStyles';
 import { TextInput } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 const JoinPage = () => {
   const navigation = useNavigation();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [rePassword, setRePassword] = useState('');
   const [selectedGender, setSelectedGender] = useState(null);
   const [checkDisable, setCheckDisable] = useState();
 
@@ -23,6 +25,30 @@ const JoinPage = () => {
     }
 
     else{checkDisable===true;}
+  }
+
+  const handleJoin = async ()=>{
+    //아이디 중복확인 필요
+    if(password !== rePassword){
+      Alert.alert('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+
+    try {
+      axios.post('http://10.0.2.2:8080/joinProcess', {
+        username,
+        password,
+      })
+      .then(response => {
+        // 성공적으로 요청을 처리한 경우
+        console.log('응답 데이터:', response.data);
+        Alert.alert('회원가입을 완료했습니다.');
+        navigation.navigate('MyPage');
+      })
+    } catch (error) {
+      Alert.alert('회원가입에 실패했습니다.');
+    }
+
   }
 
   return (
@@ -54,8 +80,8 @@ const JoinPage = () => {
       <View style={styles.pwdContainer}>
         <TextInput
           style={styles.input}
-          value={password}
-          onChangeText={setPassword}
+          value={rePassword}
+          onChangeText={setRePassword}
           placeholder="비밀번호 재확인"
           placeholderTextColor='black'
         />
@@ -121,8 +147,8 @@ const JoinPage = () => {
         />
       </View>
 
-      <View style={styles.joinButton} onPress={() => navigation.navigate('MyPage')}>
-        <TouchableOpacity>
+      <View style={styles.joinButton}>
+        <TouchableOpacity onPress={handleJoin}>
           <Text style={styles.joinButtonText}>가입하기</Text>
         </TouchableOpacity>
       </View>
