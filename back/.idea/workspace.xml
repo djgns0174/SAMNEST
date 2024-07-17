@@ -4,32 +4,102 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7aec125-d0cd-4fa2-b332-380dcd68fe18" name="Changes" comment="" />
+    <list default="true" id="5449482b-2521-4478-aea5-ec9f1ce0a0b2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/application.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/SamnestBackApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/controller/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/controller/JoinController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/controller/MainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/dto/CustomUserDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/dto/JoinDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/entity/UserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/service/CustomUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/service/JoinService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/java/com/example/samnest_back/service/LoginService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/resources/templates/join.mustache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/resources/templates/login.mustache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/main/resources/templates/main.mustache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAMNEST_Back/src/test/java/com/example/samnest_back/SamnestBackApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/.gradle/8.8/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/.gradle/8.8/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/.gradle/8.8/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/.gradle/8.8/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/.gradle/8.8/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/.gradle/8.8/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/.gradle/8.8/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/bin/main/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/bin/main/com/example/samnest/SamnestApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/samnest/bin/test/com/example/samnest/SamnestApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/screens/joinPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/screens/joinPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/screens/myPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/screens/myPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/styles/joinPageStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/styles/joinPageStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../front/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view>
-          <tree_state>
-            <expand />
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2jMZP9H5EuEUSbNTQvnMC7lzZkj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sec/Desktop/project/SAMNEST/back",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-3183f394aec4-96c0d24d" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5449482b-2521-4478-aea5-ec9f1ce0a0b2" name="Changes" comment="" />
+      <created>1721198880974</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721198880974</updated>
+      <workItem from="1721198881566" duration="413000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

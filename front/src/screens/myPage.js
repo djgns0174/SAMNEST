@@ -12,8 +12,6 @@ const MyPage = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
-    console.log(username);
-    console.log(password);//test
     try {
       await axios.post('http://10.0.2.2:8080/loginProcess', {
         username,

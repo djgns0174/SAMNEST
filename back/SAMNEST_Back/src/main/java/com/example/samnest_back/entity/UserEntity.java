@@ -1,30 +1,29 @@
 package com.example.samnest_back.entity;
 
+import com.example.samnest_back.dto.UserDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
-@Table(name = "UserEntity") // 테이블 이름 확인
 public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
-    @Column(name = "username")
+    @Column(unique = true, nullable = false)
     private String username;
 
-    @Column(name = "password")
-    private String password;
+    @Column(nullable = false)
+    private String user_password;
 
-//    @Column(name = "gender")
-//    private String gender;
-//
-//    @Column(name = "disability")
-//    private String disability;
-
-    // 게터, 세터 및 기타 필요한 메서드
+    public static UserEntity toMemberEntity(UserDTO userDTO) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUsername(userDTO.getUsername());
+        userEntity.setUser_password(userDTO.getUser_password());
+        return userEntity;
+    }
 }

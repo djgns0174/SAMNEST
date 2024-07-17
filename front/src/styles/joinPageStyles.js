@@ -13,11 +13,34 @@ const styles = StyleSheet.create({
     },
     idContainer:{
       marginTop:100,
-      width:220,
+      flexDirection:'row',
+      justifyContent:'center',
+    },
+    idInput:{
+      width:170,
       height:45,
-      alignSelf:"center",
       backgroundColor:"#FFDAB3",
       borderRadius:15,
+      fontSize:18,
+      color:'black',
+      fontWeight:'bold',
+      marginRight:10,
+    },
+    idCheckButton:{
+      width:30,
+      height:45,
+      backgroundColor:"#FCA74C",
+      borderColor:"#FFDAB3",
+      borderWidth:3,
+      borderRadius:10,
+      alignSelf:'center',
+      alignItems:'center'
+    },
+    idCheckButtonText:{
+      marginTop:2,
+      color:'black',
+      fontSize:12,
+      fontWeight:'bold',
     },
     pwdContainer:{
       marginTop:20,
@@ -33,40 +56,24 @@ const styles = StyleSheet.create({
       color:'black',
       fontWeight:'bold'
     },
-    joinButton:{
-      marginTop:12,
-      width:220,
-      height:45,
-      justifyContent:"center",
-      alignSelf:"center",
-      backgroundColor:"black",
-      borderRadius:15,
-    },
-    joinButtonText:{
-      fontSize:20,
-      color:'white',
-      alignSelf:'center',
-      fontWeight:'bold',
-      marginBottom:5,
-    },
     genderContainer:{
         flexDirection:'row',
         justifyContent:'center',
         alignItems:'center',
-        marginTop:10,
+        marginTop:15,
     },
     manButton:{
-        width:95,
+        width:100,
         height:45,
         borderRadius:15,
         backgroundColor:'#FFDAB3',
         borderColor:'#FFDAB3',
         justifyContent:'center',
         alignItems:'center',
-        marginRight:30,
+        marginRight:20,
     },
     womanButton:{
-        width:95,
+        width:100,
         height:45,
         borderRadius:15,
         backgroundColor:'#FFDAB3',
@@ -87,7 +94,64 @@ const styles = StyleSheet.create({
     },
     selectedGender:{
       backgroundColor:'#ffda6b',
-    }
+    },
+    checkDisableContainer:{
+      flexDirection:'row',
+      justifyContent:'center',
+      alignItems:'center',
+      marginTop:30,
+    },
+    disableButton1:{
+      width:65,
+      height:35,
+      borderRadius:10,
+      backgroundColor:'#FFDAB3',
+      justifyContent:'center',
+      alignItems:'center',
+      marginRight:10,
+    },
+    disableButton2:{
+      width:65,
+      height:35,
+      borderRadius:10,
+      backgroundColor:'#FFDAB3',
+      justifyContent:'center',
+      alignItems:'center',
+    },
+    disableText:{
+      alignSelf:"center",
+      fontSize:15,
+      color:'black',
+      fontWeight:'bold'
+    },
+    disableETC:{
+      marginTop:10,
+      width:220,
+      height:45,
+      alignSelf:"center",
+      borderRadius:15,
+      marginBottom:30,
+      },
+    checkDisable:{
+      backgroundColor:'#ffda6b',
+    },
+
+    joinButton:{
+      marginTop:12,
+      width:220,
+      height:45,
+      justifyContent:"center",
+      alignSelf:"center",
+      backgroundColor:"black",
+      borderRadius:15,
+    },
+    joinButtonText:{
+      fontSize:20,
+      color:'white',
+      alignSelf:'center',
+      fontWeight:'bold',
+      marginBottom:5,
+    },
   });
 
 export default styles;
