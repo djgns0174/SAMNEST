@@ -12,13 +12,19 @@ const JoinPage = () => {
   const [password, setPassword] = useState('');
   const [rePassword, setRePassword] = useState('');
   const [selectedGender, setSelectedGender] = useState('남성');
+  const [visually, setVisually] = useState(false);
+  const [deaf, setDeaf] = useState(false);
+  const [physically, setPhysically] = useState(false);
   const [selectedDisable, setSelectedDisable] = useState([]);
   const [disableETCColor, setDisableETCColor]= useState('#FFDAB3');
+
+  //id 중복 확인했는지
+  const [idCheckDuplicate, setIdCheckDuplicate] = useState(false);
 
   const idCheckDuplicateButtonPress = async () => {
     try {
       // 아이디 중복 확인 API 호출
-      const response = await axios.post('http://10.0.2.2:8080/checkIdDuplicate', {
+      const response = await axios.post('http://10.0.2.2:8080/user/checkIdDuplicate', {
         username,
       });
 
@@ -26,6 +32,7 @@ const JoinPage = () => {
         Alert.alert('이미 존재하는 아이디입니다.');
       } else {
         Alert.alert('사용 가능한 아이디입니다.');
+        setIdCheckDuplicate(true);
       }
     } catch (error) {
       console.error('아이디 중복 확인 실패:', error);
@@ -41,7 +48,12 @@ const JoinPage = () => {
 
   const disableHandlePress = (disable) => {
     if (selectedDisable.includes(disable)) {
-      setSelectedDisable(selectedDisable.filter(selected => selected !== disable));
+      setSelectedDisable(selectedDisable.filter(selected => {
+        selected !== disable
+        if(selected ==='시각'){setVisually(false);}
+        else if(selected ==='청각'){setDeaf(false);}
+        else if(selected === '지체'){setPhysically(false);}
+      }));
     } else {
       setSelectedDisable([...selectedDisable, disable]);
     }
@@ -53,16 +65,25 @@ const JoinPage = () => {
   }
 
   const handleJoin = async ()=>{
-    //아이디 중복확인 필요
     if(password !== rePassword){
       Alert.alert('비밀번호가 일치하지 않습니다.');
       return;
     }
 
+    if(!idCheckDuplicate){
+      Alert.alert('아이디 중복 확인해주세요.');
+      return;
+    }
+
     try {
-      axios.post('http://10.0.2.2:8080/joinProcess', {
+      console.log(visually);//test
+      axios.post('http://10.0.2.2:8080/user/register', {
         username,
         password,
+        selectedGender,
+        visually,
+        deaf,
+        physically,
       })
       .then(response => {
         // 성공적으로 요청을 처리한 경우
@@ -92,7 +113,7 @@ const JoinPage = () => {
           textAlign="center"
         />
 
-        <TouchableOpacity style={styles.idCheckButton} onPress={()=>idCheckDuplicateButtonPress}>
+        <TouchableOpacity style={styles.idCheckButton} onPress={idCheckDuplicateButtonPress}>
           <Text style={styles.idCheckButtonText}>중복 확인</Text>
         </TouchableOpacity>
       </View>
@@ -156,7 +177,10 @@ const JoinPage = () => {
             styles.disableButton1,
             selectedDisable.includes('시각') ? styles.checkDisable : null,
           ]}
-          onPress={() => disableHandlePress('시각')}
+          onPress={() => {
+            disableHandlePress('시각');
+            setVisually(true);
+          }}
         >
           <Text style={styles.disableText}>시각</Text>
         </TouchableOpacity>
@@ -166,7 +190,10 @@ const JoinPage = () => {
             styles.disableButton1,
             selectedDisable.includes('청각') ? styles.checkDisable : null,
           ]}
-          onPress={()=>disableHandlePress('청각')}
+          onPress={()=>{
+            disableHandlePress('청각')
+            setDeaf(true);
+          }}
         >
           <Text style={styles.disableText}>청각</Text>
         </TouchableOpacity>
@@ -176,7 +203,10 @@ const JoinPage = () => {
             styles.disableButton2,
             selectedDisable.includes('지체') === true ? styles.checkDisable : null,
           ]}
-          onPress={()=>disableHandlePress('지체')}
+          onPress={()=>{
+            disableHandlePress('지체')
+            setPhysically(true);
+          }}
         >
           <Text style={styles.disableText}>지체</Text>
         </TouchableOpacity>
@@ -188,8 +218,8 @@ const JoinPage = () => {
           //value={inputDisableETC}
           onChangeText={disableETCHandlePress}
           placeholderTextColor='black'
-          placeholder="기타"
-        />
+          placeholder="기타" //해당 input값 서버로 넘기는 로직 필요
+        /> 
       </View>
       
 

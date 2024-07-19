@@ -7,12 +7,19 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public void save(UserDTO userDTO) {
         UserEntity userEntity = UserEntity.toMemberEntity(userDTO);
         userRepository.save(userEntity);
+    }
+
+    public boolean checkIdDuplicate(String username) {
+        return userRepository.existsByUsername(username);
     }
 }
