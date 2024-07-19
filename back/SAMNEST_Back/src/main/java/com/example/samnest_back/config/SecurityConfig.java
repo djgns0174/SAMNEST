@@ -22,18 +22,9 @@ public class SecurityConfig {
                 )
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/user/register").permitAll() // '/user/register' 경로 허용
-                                .requestMatchers("/user/checkIdDuplicate").permitAll() //아이디 중복 허용
+                                .requestMatchers(new AntPathRequestMatcher("/user/register")).permitAll() // '/user/register' 경로 허용
+                                .requestMatchers(new AntPathRequestMatcher("/user/checkIdDuplicate")).permitAll() // 아이디 중복 허용
                                 .anyRequest().authenticated()
-                )
-                .formLogin(formLogin ->
-                        formLogin
-                                .loginPage("/login")
-                                .permitAll()
-                )
-                .logout(logout ->
-                        logout
-                                .permitAll()
                 );
 
         return http.build();
