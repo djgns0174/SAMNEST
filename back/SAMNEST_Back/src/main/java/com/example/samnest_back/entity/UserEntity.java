@@ -23,14 +23,6 @@ public class UserEntity {
     private boolean deaf;
     private boolean physically;
 
-    // Getter and Setter for id
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     // Getter and Setter for username
     public String getUsername() {

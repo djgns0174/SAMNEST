@@ -45,4 +45,5 @@ public class UserController {
         boolean isIdDuplicate = userService.checkIdDuplicate(username);
         return ResponseEntity.ok(isIdDuplicate);
     }
+
 }

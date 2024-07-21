@@ -4,18 +4,29 @@ import com.example.samnest_back.dto.UserDTO;
 import com.example.samnest_back.entity.UserEntity;
 import com.example.samnest_back.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
+
     private final UserRepository userRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public UserService(UserRepository userRepository) {
+
         this.userRepository = userRepository;
+
+        this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
     }
 
     public void save(UserDTO userDTO) {
+
         UserEntity userEntity = UserEntity.toMemberEntity(userDTO);
+
+        String encodedPassword = bCryptPasswordEncoder.encode(userEntity.getPassword());
+        userEntity.setPassword(encodedPassword);
+
         userRepository.save(userEntity);
     }
 
