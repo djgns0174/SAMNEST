@@ -1,6 +1,6 @@
 package com.example.samnest_back.jwt;
 
-import com.example.samnest_back.dto.CustomUserDetails;
+import com.example.samnest_back.user.dto.CustomUserDetails;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

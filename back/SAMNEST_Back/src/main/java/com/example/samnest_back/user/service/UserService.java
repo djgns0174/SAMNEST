@@ -1,9 +1,8 @@
-package com.example.samnest_back.service;
+package com.example.samnest_back.user.service;
 
-import com.example.samnest_back.dto.UserDTO;
-import com.example.samnest_back.entity.UserEntity;
-import com.example.samnest_back.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import com.example.samnest_back.user.dto.UserDTO;
+import com.example.samnest_back.user.entity.UserEntity;
+import com.example.samnest_back.user.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +21,7 @@ public class UserService {
 
     public void save(UserDTO userDTO) {
 
-        UserEntity userEntity = UserEntity.toMemberEntity(userDTO);
+        UserEntity userEntity = UserEntity.toUserEntity(userDTO);
 
         String encodedPassword = bCryptPasswordEncoder.encode(userEntity.getPassword());
         userEntity.setPassword(encodedPassword);

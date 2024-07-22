@@ -1,8 +1,8 @@
-package com.example.samnest_back.service;
+package com.example.samnest_back.user.service;
 
-import com.example.samnest_back.dto.CustomUserDetails;
-import com.example.samnest_back.entity.UserEntity;
-import com.example.samnest_back.repository.UserRepository;
+import com.example.samnest_back.user.dto.CustomUserDetails;
+import com.example.samnest_back.user.entity.UserEntity;
+import com.example.samnest_back.user.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

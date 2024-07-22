@@ -1,7 +1,6 @@
-package com.example.samnest_back.repository;
+package com.example.samnest_back.user.repository;
 
-import com.example.samnest_back.entity.UserEntity;
-import org.apache.catalina.User;
+import com.example.samnest_back.user.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<UserEntity, Integer> {

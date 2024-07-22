@@ -1,6 +1,6 @@
-package com.example.samnest_back.dto;
+package com.example.samnest_back.user.dto;
 
-import com.example.samnest_back.entity.UserEntity;
+import com.example.samnest_back.user.entity.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

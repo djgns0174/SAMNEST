@@ -1,6 +1,7 @@
 package com.example.samnest_back.config;
 
 import com.example.samnest_back.jwt.JWTUtil;
+import com.example.samnest_back.jwt.JwtFilter;
 import com.example.samnest_back.jwt.LoginFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,8 +53,13 @@ public class SecurityConfig {
                                 .requestMatchers(new AntPathRequestMatcher("/user/login")).permitAll()   //login test
                                 .anyRequest().authenticated()
                 );
+
+        http
+                .addFilterBefore(new JwtFilter(jwtUtil), LoginFilter.class);
+
         http
                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
 

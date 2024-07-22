@@ -1,7 +1,7 @@
-package com.example.samnest_back.controller;
+package com.example.samnest_back.user.controller;
 
-import com.example.samnest_back.dto.UserDTO;
-import com.example.samnest_back.service.UserService;
+import com.example.samnest_back.user.dto.UserDTO;
+import com.example.samnest_back.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -40,6 +40,14 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	runtimeOnly 'com.h2database:h2'
+	// JJWT API 의존성
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+
+	// JJWT 구현 의존성
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+
+	// JJWT Jackson 의존성 (JSON 직렬화/역직렬화)
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
 }
 
 tasks.named('test') {

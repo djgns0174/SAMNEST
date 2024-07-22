@@ -1,6 +1,6 @@
-package com.example.samnest_back.entity;
+package com.example.samnest_back.user.entity;
 
-import com.example.samnest_back.dto.UserDTO;
+import com.example.samnest_back.user.dto.UserDTO;
 import jakarta.persistence.*;
 
 @Entity
@@ -79,7 +79,7 @@ public class UserEntity {
     }
 
     // Static method to convert UserDTO to UserEntity
-    public static UserEntity toMemberEntity(UserDTO userDTO) {
+    public static UserEntity toUserEntity(UserDTO userDTO) {
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername(userDTO.getUsername());
         userEntity.setPassword(userDTO.getPassword());

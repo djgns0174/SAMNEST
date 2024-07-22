@@ -3,6 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.example.samnest_back.dto.UserDTO" alias="User"></typeAlias>
+        <typeAlias type="com.example.samnest_back.user.dto.UserDTO" alias="User"></typeAlias>
     </typeAliases>
 </configuration>
