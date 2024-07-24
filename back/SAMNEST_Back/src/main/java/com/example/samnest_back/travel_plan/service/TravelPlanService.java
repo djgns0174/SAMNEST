@@ -5,10 +5,12 @@ import com.example.samnest_back.travel_plan.entity.TravelPlanEntity;
 import com.example.samnest_back.travel_plan.repository.DailyScheduleRepository;
 import com.example.samnest_back.travel_plan.repository.TravelPlanRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TravelPlanService {
@@ -42,5 +44,11 @@ public class TravelPlanService {
         dailyScheduleRepository.saveAll(dailySchedules);
 
         return savedPlan;
-    }   //쿼리문으로 travelPlan table 생성해야되고 현재 travelPlan과 day1~end 까지만 생성.
+    }
+
+//    @Transactional
+//    public DailyScheduleEntity addDailySchedule() {
+//        Optional<TravelPlanEntity> travelPlanEntityOptional = travelPlanRepository.findById();
+//
+//    }
 }
