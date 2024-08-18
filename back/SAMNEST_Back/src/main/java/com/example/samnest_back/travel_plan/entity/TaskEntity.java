@@ -24,4 +24,7 @@ public class TaskEntity {
     @ManyToOne
     @JoinColumn(name = "dailySchedule")
     private DailyScheduleEntity dailyScheduleEntity;
+    @ManyToOne
+    @JoinColumn(name = "daily_schedule_id")
+    private DailyScheduleEntity dailySchedule;
 }

@@ -20,9 +20,20 @@ public class DailyScheduleEntity {
     private LocalDate date;
 
     @ManyToOne
-    @JoinColumn(name = "travel_plan_id")
-    private TravelPlanEntity travelPlanEntity;
+    @JoinColumn(name = "travel_plan_id", insertable = false, updatable = false)
+    private TravelPlanEntity travelPlan;
 
-    @OneToMany(mappedBy = "daliySchedule", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "dailySchedule", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TaskEntity> taskEntities;
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+    public TravelPlanEntity getTravelPlanEntity() {
+        return travelPlan;
+    }
+
+    public void setTravelPlanEntity(TravelPlanEntity travelPlanEntity) {
+        this.travelPlan = travelPlanEntity;
+    }
 }

@@ -1,6 +1,6 @@
 package com.example.samnest_back.config;
 
-import com.example.samnest_back.jwt.JWTUtil;
+import com.example.samnest_back.jwt.JwtUtil;
 import com.example.samnest_back.jwt.JwtFilter;
 import com.example.samnest_back.jwt.LoginFilter;
 import org.springframework.context.annotation.Bean;
@@ -22,9 +22,9 @@ public class SecurityConfig {
     //AuthenticationManager가 인자로 받을 AuthenticationConfiguraion 객체 생성자 주입
     private final AuthenticationConfiguration authenticationConfiguration;
 
-    private final JWTUtil jwtUtil;
+    private final JwtUtil jwtUtil;
 
-    public SecurityConfig(AuthenticationConfiguration authenticationConfiguration, JWTUtil jwtUtil) {
+    public SecurityConfig(AuthenticationConfiguration authenticationConfiguration, JwtUtil jwtUtil) {
 
         this.authenticationConfiguration = authenticationConfiguration;
         this.jwtUtil = jwtUtil;
